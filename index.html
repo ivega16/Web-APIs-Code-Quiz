@@ -18,28 +18,51 @@
 
     <main>
 
-        <section class="intro-section q1">
+        <section id="intro-section">
             <h1>Coding Quiz Challenge</h1>
+
             <p>
                 Try to answer the folloing code-related questions within the time limit. Keep in mind that incorrect answers will penalize your scoretime by ten seconds.
             </p>
 
-        <button id="clicked" class="btn">Start</button>
+            <button id="start-btn">Start Quiz</button>
+        </section>
         
 
 
-        <section id="question-page" class="hidden">
-            <h1>Commonly used data types DO NOT include:</h1>
-            <button>Choice 1</button>
-            <button>choice 2</button>
-            <button>choice 3</button>
-            <button>choice 4</button>
+        <section id="question-section" class="hidden">
+            <h2 id="question-title">Commonly used data types DO NOT include:</h2>
+
+            <ul> 
+                <!-- if there's more than 1 element doing the same style, we add a class -->
+                <li><button class="choices">Choice 1</button></li>
+                <li><button class="choices">choice 2</button></li>
+                <li><button class="choices">choice 3</button></li>
+                <li><button class="choices">choice 4</button></li>
+            </ul>
+        </section>
+        <section id="initial-section">
+            <h2>All done!</h2>
+            <!-- label will be used to dynamically change the value of the score -->
+            <p>Your final score is <label for="" id="4">80</label></p>
+            <p>Enter initials: <input type="text" id="initial-input"> <button id="save-btn">Submit</button></p>
+
         </section>
 
-        <section id="highscore-section"></section>
+        <section id="highscore-section">
+            <h2>Highscores</h2>
+            <!-- we have Ordered List because the results needs to go in order of highest score -->
+            <ol>
+                <li>PL-80</li>
+            </ol>
+            <button id="back">Go Back</button>
+            <button id="clear">Clear Highscores</button>
+
+        </section>
 
     </main>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script type="text/javascript" src="./script.js"></script>
 </body>
+
 </html>

@@ -11,16 +11,18 @@ header p {
     display: flex;
     justify-content: flex-end;
 }
-/* p label {
-
-} */
-
-.q1 {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
 
 /* .hidden {
     display: none;
 } */
+#intro-section, #question-section, #initial-section, #highscore-section {
+    text-align: center;
+    list-style-type: none;
+}
+/* ul level for li  */
+#question-section ul {
+    list-style-type: none;
+}
+#highscore-section ol {
+    list-style: none;
+}
