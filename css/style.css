@@ -12,9 +12,9 @@ header p {
     justify-content: flex-end;
 }
 
-/* .hidden {
+.hide {
     display: none;
-} */
+}
 #intro-section, #question-section, #initial-section, #highscore-section {
     text-align: center;
     list-style-type: none;
