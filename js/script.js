@@ -3,7 +3,8 @@ let introSectionEl = document.getElementById('intro-section');
 let timerEl = document.getElementById('timer');
 let questionSectionEl = document.getElementById('question-section');
 let titleEl = document.getElementById('question-title');
-
+let choicesEl = document.querySelectorAll('choices'); //we do querySelectorAll because it's more than 1 class name
+let questionIndex = 0;
 // each question needs an object
 let questionsArray = [
     {
@@ -50,6 +51,7 @@ function startQuiz() {
 
     questionSectionEl.classList.remove('hide'); //OR questionSectionEl.setAttribute('class','');
     setIntervalId = setInterval(countDown, 1000); //every 1 second (here 1 second in milliseconds) call this function
+    showQuestions();
 }
 
 function countDown() {
@@ -59,11 +61,32 @@ function countDown() {
    }
 }
 
+function showQuestions() {
 
+    titleEl.textContent = questionsArray[questionIndex].title;
+
+    choicesEl[0].textcontent = questionsArray[questionIndex].choices[0];
+    choicesEl[1].textcontent = questionsArray[questionIndex].choices[1];
+    choicesEl[2].textcontent = questionsArray[questionIndex].choices[2];
+    choicesEl[3].textcontent = questionsArray[questionIndex].choices[3];
+
+    choicesEl[0].textcontent = questionsArray[1].choices[0];
+    choicesEl[1].textcontent = questionsArray[1].choices[1];
+}
+
+
+function nextQuestion(event) {
+    let currentElement = event.target; //means whatever I click on is my current element
+    if(currentElement.matches('button')) {
+        questionIndex++;
+        showQuestions();
+    }
+}
 
 
 //when we click startBtn it will trigger the startQuiz function
 startBtn.addEventListener("click", startQuiz);
+questionSectionEl.addEventListener("click", nextQuestion); //anytime you click inside the parent, function will run aka go to next question
 
 
 
