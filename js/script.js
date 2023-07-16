@@ -4,8 +4,10 @@ let timerEl = document.getElementById('timer');
 let questionSectionEl = document.getElementById('question-section');
 let titleEl = document.getElementById('question-title');
 let choicesEl = document.querySelectorAll('.choices'); //we do querySelectorAll because it's more than 1 class name
+let initialEl = document.getElementById('initial-section');
 let questionIndex = 0;
 let answerFeedback;
+let counter = 0;
 let newTimer = "";
 // each question needs an object
 let questionsArray = [
@@ -60,8 +62,6 @@ function countDown() {
     //debugger
     timerEl.textContent = timeLeft--;
     if (newTimer === "Wrong!") {
-        // timeLeft-=15;
-
         timerEl.textContent = timeLeft-=15;
         newTimer = "";
     }
@@ -81,19 +81,17 @@ let q = questionsArray[questionIndex];
     choicesEl[3].textContent = q.choices[3];
     }
 
-
-
 function nextQuestion(event) {
     //$('#msg').html("");
     
     //debugger;
     let currentElement = event.target; //means whatever I click on is my current element
+
     if(currentElement.matches('button')) {
 
         //correctAnswer(event);
         questionIndex++;
         showQuestions();
-  
     }
 }
 
@@ -106,7 +104,7 @@ function reply_click(clicked_id) {
 
 
 function correctAnswer(n) {
-    //debugger;
+    debugger;
     
 
     let in2 = Object.getOwnPropertyDescriptor(questionsArray[questionIndex],'answer');
@@ -121,13 +119,43 @@ function correctAnswer(n) {
         answerFeedback = "Wrong!";
         newTimer = "Wrong!";
     }
-//   let feedback = document.getElementById('msg');
-//   feedback.textContent(answerFeedback);
+
+
+
   $('#msg').html(answerFeedback);
   
-  //questionIndex++;
-  showQuestions();
-  nextQuestion();
+    counter++;
+  if(counter === 5) {
+    questionSectionEl.classList.add('hide');
+    initialEl.classList.remove('hide');
+    let finalTime = timeLeft;
+    clearInterval(setIntervalId);
+    document.getElementById('score').textContent = timeLeft;
+
+  }
+  else {
+    showQuestions();
+    nextQuestion();
+  }
+
+//   if(questionsArray[questionIndex].answer === questionsArray[questionIndex].length) {
+//     questionSectionEl.classList.add('hide');
+//     initialEl.classList.remove('hide');
+//   }
+
+
+//   if (questionsArray.includes(printinglastElement)) {
+//     questionSectionEl.classList.add('hide');
+//     initialEl.classList.remove('hide');
+//   }
+
+//   if(lastElement === 4) {
+//     questionSectionEl.classList.add('hide');
+//     initialEl.classList.remove('hide');
+
+//   }
+  
+  
   
 
   
@@ -139,6 +167,7 @@ startBtn.addEventListener("click", startQuiz);
 questionSectionEl.addEventListener("click", nextQuestion); //anytime you click inside the parent, function will run aka go to next question
 // choicesEl.addEventListener("click", correctAnswer); //anytime you click a choice, the 
 // choicesEl.addEventListener('click', correctAnswer);
+
 
 
 
