@@ -5,6 +5,8 @@ let questionSectionEl = document.getElementById('question-section');
 let titleEl = document.getElementById('question-title');
 let choicesEl = document.querySelectorAll('.choices'); //we do querySelectorAll because it's more than 1 class name
 let questionIndex = 0;
+let answerFeedback;
+let newTimer = "";
 // each question needs an object
 let questionsArray = [
     {
@@ -55,7 +57,15 @@ function startQuiz() {
 }
 
 function countDown() {
+    //debugger
     timerEl.textContent = timeLeft--;
+    if (newTimer === "Wrong!") {
+        // timeLeft-=15;
+
+        timerEl.textContent = timeLeft-=15;
+        newTimer = "";
+    }
+
    if(timeLeft === 0){
     clearInterval(setIntervalId);
    }
@@ -76,34 +86,16 @@ let q = questionsArray[questionIndex];
 function nextQuestion(event) {
     //$('#msg').html("");
     
-    debugger;
+    //debugger;
     let currentElement = event.target; //means whatever I click on is my current element
     if(currentElement.matches('button')) {
 
         //correctAnswer(event);
-        reply_click();
-        questionIndex++;
-        showQuestions();
-  
-    }
-    // else {
-    //     questionIndex++;
-    //     showQuestions();
-    // }
-}
-
-function otherQuestions() {
-    debugger;
-    let currentElement = event.target; //means whatever I click on is my current element
-    if(currentElement.matches('button')) {
-
         questionIndex++;
         showQuestions();
   
     }
 }
-
-
 
 function reply_click(clicked_id) {
     
@@ -111,9 +103,11 @@ function reply_click(clicked_id) {
     correctAnswer(clickedIdValue);
 }
 
+
+
 function correctAnswer(n) {
-    debugger;
-    let answerFeedback;
+    //debugger;
+    
 
     let in2 = Object.getOwnPropertyDescriptor(questionsArray[questionIndex],'answer');
 
@@ -125,28 +119,19 @@ function correctAnswer(n) {
     else {
         alert('false');
         answerFeedback = "Wrong!";
+        newTimer = "Wrong!";
     }
 //   let feedback = document.getElementById('msg');
 //   feedback.textContent(answerFeedback);
-  //$('#msg').html(answerFeedback);
+  $('#msg').html(answerFeedback);
   
-  questionIndex++;
+  //questionIndex++;
   showQuestions();
   nextQuestion();
   
 
   
 }
-
-//     if (choicesEl.match(questionsArray[questionIndex].answer)) {
-
-//         answerFeedback = "Correct!";
-//     }
-//     else {
-//         answerFeedback = "Wrong!";
-//     }
-//     getElementById("msg").innerHTmL = answerFeedback;
-// }
 
 
 //when we click startBtn it will trigger the startQuiz function
