@@ -33,13 +33,14 @@
         <section id="question-section" class="hide">
             <h2 id="question-title">question 1</h2>
 
-            <ul> 
+            <ul id="button-group"> 
                 <!-- if there's more than 1 element doing the same style, we add a class -->
-                <li><button class="choices">Choice 1</button></li>
-                <li><button class="choices">choice 2</button></li>
-                <li><button class="choices">choice 3</button></li>
-                <li><button class="choices">choice 4</button></li>
+                <li><button id="choice-1" class="choices" onClick="reply_click(this.id)">Choice 1</button></li>
+                <li><button id="choice-2" class="choices" onClick="reply_click(this.id)">choice 2</button></li>
+                <li><button id="choice-3" class="choices" onClick="reply_click(this.id)">choice 3</button></li>
+                <li><button id="choice-4" class="choices" onClick="reply_click(this.id)">choice 4</button></li>
             </ul>
+            <p id="msg"></p>
         </section>
 
         <section id="initial-section" class="hide">
