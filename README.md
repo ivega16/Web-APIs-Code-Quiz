@@ -17,7 +17,7 @@ N/A
 
 ## Usage
 
-Here is the link to deployed page: [(https://ivega16.github.io/Password-Generator/)]
+Here is the link to deployed page: [[(https://ivega16.github.io/Password-Generator/)](https://ivega16.github.io/Web-APIs-Code-Quiz/)]
 
 ## Credits
 
@@ -31,7 +31,7 @@ Isabella Vega - https://github.com/ivega16
 ## Features
 
 Website
-<img width="772" alt="image" src="https://github.com/ivega16/Password-Generator/assets/99403219/9606bdab-adda-4910-bd22-cd9543c8fadf">
+<img width="1460" alt="image" src="https://github.com/ivega16/Web-APIs-Code-Quiz/assets/99403219/c4f4408d-6feb-4cfa-8863-8c84de0db0e0">
 
 
 
