@@ -47,17 +47,17 @@
             <h2>All done!</h2>
             <!-- label will be used to dynamically change the value of the score -->
             <p>Your final score is <label for="" id="score">80</label></p>
-            <p>Enter initials: <input type="text" id="initial-input"> <button id="save-btn" onclick="highScore()">Submit</button></p>
+            <p>Enter initials: <input type="text" id="initial-input"> 
+            <p><input type="button" id="save-btn" value="Click" onclick= "highScore()"/></p>
 
         </section>
 
         <section id="highscore-section" class="hide">
             <h2>Highscores</h2>
             <!-- we have Ordered List because the results needs to go in order of highest score -->
-            <ol>
-                <li>PL-80</li>
-            </ol>
-            <button id="back">Go Back</button>
+            <ul id="demo">
+            </ul>
+            <button id="back" onclick="renewQuiz()" >Go Back</button>
             <button id="clear">Clear Highscores</button>
 
         </section>

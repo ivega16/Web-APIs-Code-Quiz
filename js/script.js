@@ -9,6 +9,7 @@ let highscoreSectionEl = document.getElementById('highscore-section');
 let questionIndex = 0;
 let answerFeedback;
 let counter = 0;
+let listCounter = 0;
 let newTimer = "";
 // each question needs an object
 let questionsArray = [
@@ -39,7 +40,7 @@ let questionsArray = [
     },
 ]
 
-var timeLeft=questionsArray.length* 15 //to equal 75 sec.
+var timeLeft = questionsArray.length* 15 //to equal 75 sec.
 
 /*
     1. hide intro
@@ -89,8 +90,6 @@ function nextQuestion(event) {
     let currentElement = event.target; //means whatever I click on is my current element
 
     if(currentElement.matches('button')) {
-
-        //correctAnswer(event);
         questionIndex++;
         showQuestions();
     }
@@ -102,7 +101,7 @@ function reply_click(clicked_id) {
     correctAnswer(clickedIdValue);
 }
 
-
+let finalTime = timeLeft;
 
 function correctAnswer(n) {
     debugger;
@@ -122,30 +121,49 @@ function correctAnswer(n) {
     }
 
 
-
   $('#msg').html(answerFeedback);
   
     counter++;
   if(counter === 5) {
     questionSectionEl.classList.add('hide');
     initialEl.classList.remove('hide');
-    let finalTime = timeLeft;
     clearInterval(setIntervalId);
+    finalTime = timeLeft;
     document.getElementById('score').textContent = finalTime;
-    highScore(finalTime);
   }
   else {
     showQuestions();
     nextQuestion();
   }
+}
 
-  function highScore(time) {
+// let list = document.getElementById('demo');
+
+  function highScore() {
+    
     initialEl.classList.add('hide');
     highscoreSectionEl.classList.remove('hide');
-
-    initialEl.submit();
-    }
+    let list = document.createElement('li');
+        list.innerHTML = document.getElementById('initial-input').value + ' ' + finalTime;
+        document.getElementById('demo').appendChild(list);
+    
+    
+    
 }
+
+
+
+    function renewQuiz() {
+        questionIndex = 0; 
+        $('#msg').html("");
+        timeLeft = questionsArray.length* 15 //to equal 75 sec.
+        setIntervalId = 0;
+        counter= 0;
+        highscoreSectionEl.classList.add('hide');
+        listCounter++;
+        startQuiz();
+
+    }
 
   
 
@@ -155,9 +173,7 @@ function correctAnswer(n) {
 startBtn.addEventListener("click", startQuiz);
 questionSectionEl.addEventListener("click", nextQuestion); //anytime you click inside the parent, function will run aka go to next question
 // choicesEl.addEventListener("click", correctAnswer); //anytime you click a choice, the 
-// choicesEl.addEventListener('click', correctAnswer);
 
-initialEl.addEventListener("click", highScore);
 
 
 
