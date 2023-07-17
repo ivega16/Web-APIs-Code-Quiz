@@ -5,6 +5,7 @@ let questionSectionEl = document.getElementById('question-section');
 let titleEl = document.getElementById('question-title');
 let choicesEl = document.querySelectorAll('.choices'); //we do querySelectorAll because it's more than 1 class name
 let initialEl = document.getElementById('initial-section');
+let highscoreSectionEl = document.getElementById('highscore-section');
 let questionIndex = 0;
 let answerFeedback;
 let counter = 0;
@@ -130,36 +131,24 @@ function correctAnswer(n) {
     initialEl.classList.remove('hide');
     let finalTime = timeLeft;
     clearInterval(setIntervalId);
-    document.getElementById('score').textContent = timeLeft;
-
+    document.getElementById('score').textContent = finalTime;
+    highScore(finalTime);
   }
   else {
     showQuestions();
     nextQuestion();
   }
 
-//   if(questionsArray[questionIndex].answer === questionsArray[questionIndex].length) {
-//     questionSectionEl.classList.add('hide');
-//     initialEl.classList.remove('hide');
-//   }
+  function highScore(time) {
+    initialEl.classList.add('hide');
+    highscoreSectionEl.classList.remove('hide');
 
-
-//   if (questionsArray.includes(printinglastElement)) {
-//     questionSectionEl.classList.add('hide');
-//     initialEl.classList.remove('hide');
-//   }
-
-//   if(lastElement === 4) {
-//     questionSectionEl.classList.add('hide');
-//     initialEl.classList.remove('hide');
-
-//   }
-  
-  
-  
-
-  
+    initialEl.submit();
+    }
 }
+
+  
+
 
 
 //when we click startBtn it will trigger the startQuiz function
@@ -168,7 +157,7 @@ questionSectionEl.addEventListener("click", nextQuestion); //anytime you click i
 // choicesEl.addEventListener("click", correctAnswer); //anytime you click a choice, the 
 // choicesEl.addEventListener('click', correctAnswer);
 
-
+initialEl.addEventListener("click", highScore);
 
 
 
