@@ -17,7 +17,7 @@ N/A
 
 ## Usage
 
-Here is the link to deployed page: [[(https://ivega16.github.io/Password-Generator/)](https://ivega16.github.io/Web-APIs-Code-Quiz/)]
+Here is the link to deployed page: [(https://ivega16.github.io/Web-APIs-Code-Quiz/)]
 
 ## Credits
 
