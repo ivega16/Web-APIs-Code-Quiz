@@ -104,18 +104,18 @@ function reply_click(clicked_id) {
 let finalTime = timeLeft;
 
 function correctAnswer(n) {
-    debugger;
+    //debugger;
     
 
     let in2 = Object.getOwnPropertyDescriptor(questionsArray[questionIndex],'answer');
 
     if ((n) === in2.value) {
     //debugger
-        alert('true');
+        // alert('true');
         answerFeedback = "Correct!";
     }
     else {
-        alert('false');
+        // alert('false');
         answerFeedback = "Wrong!";
         newTimer = "Wrong!";
     }
@@ -143,14 +143,16 @@ function correctAnswer(n) {
     initialEl.classList.add('hide');
     highscoreSectionEl.classList.remove('hide');
     let list = document.createElement('li');
-        list.innerHTML = document.getElementById('initial-input').value + ' ' + finalTime;
+        list.innerHTML = document.getElementById('initial-input').value + '-' + finalTime;
         document.getElementById('demo').appendChild(list);  
 }
 
     function renewQuiz() {
+        debugger
         questionIndex = 0; 
         $('#msg').html("");
-        timeLeft = questionsArray.length* 15 //to equal 75 sec.
+        timeLeft = questionsArray.length* 15; //to equal 75 sec.
+        newTimer ='';
         setIntervalId = 0;
         counter= 0;
         highscoreSectionEl.classList.add('hide');
