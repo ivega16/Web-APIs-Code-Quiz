@@ -160,7 +160,22 @@ function correctAnswer(n) {
         startQuiz();
     }
    
-  
+  function clearScores() {
+    initialEl.classList.add('hide');
+    highscoreSectionEl.classList.remove('hide');
+    let list = document.createElement('li');
+    document.getElementById('demo').innerHTML = '';
+        list.innerHTML = document.getElementById('initial-input').value + '-' + finalTime;
+        questionIndex = 0; 
+        $('#msg').html("");
+        timeLeft = questionsArray.length* 15; //to equal 75 sec.
+        newTimer ='';
+        setIntervalId = 0;
+        counter= 0;
+        highscoreSectionEl.classList.add('hide');
+        listCounter++;
+    startQuiz();
+  }
 
 
 
