@@ -140,18 +140,12 @@ function correctAnswer(n) {
 // let list = document.getElementById('demo');
 
   function highScore() {
-    
     initialEl.classList.add('hide');
     highscoreSectionEl.classList.remove('hide');
     let list = document.createElement('li');
         list.innerHTML = document.getElementById('initial-input').value + ' ' + finalTime;
-        document.getElementById('demo').appendChild(list);
-    
-    
-    
+        document.getElementById('demo').appendChild(list);  
 }
-
-
 
     function renewQuiz() {
         questionIndex = 0; 
@@ -162,9 +156,8 @@ function correctAnswer(n) {
         highscoreSectionEl.classList.add('hide');
         listCounter++;
         startQuiz();
-
     }
-
+   
   
 
 
